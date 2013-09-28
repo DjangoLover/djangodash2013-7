@@ -139,9 +139,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
+    'raven.contrib.django.raven_compat',
     'django_facebook',
 
-    'core'
+    'core',
+    'api',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
