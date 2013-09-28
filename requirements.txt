@@ -1,5 +1,7 @@
-django==1.5.4
+django==1.5.2
 south==0.8.2
 django_facebook
 PIL
-wikitools==1.1.1
+grab
+pycurl
+lxml
