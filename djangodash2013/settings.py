@@ -106,8 +106,9 @@ TEMPLATE_CONTEXT_PROCESSORS += (
     'django_facebook.context_processors.facebook',
 )
 
-AUTHENTICATION_BACKENDS += (
+AUTHENTICATION_BACKENDS = (
     'django_facebook.auth_backends.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -136,6 +137,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admin',
 
     'django_facebook',
 
