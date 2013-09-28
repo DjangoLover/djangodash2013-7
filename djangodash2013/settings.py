@@ -17,8 +17,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '', # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'db.sqlite', # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -98,6 +98,18 @@ TEMPLATE_LOADERS = (
     #     'django.template.loaders.eggs.Loader',
 )
 
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS, AUTHENTICATION_BACKENDS
+
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'django_facebook.context_processors.facebook',
+)
+
+AUTHENTICATION_BACKENDS += (
+    'django_facebook.auth_backends.FacebookBackend',
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -124,10 +136,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+
+    'django_facebook',
+
+    'core'
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -160,3 +172,10 @@ LOGGING = {
         },
     }
 }
+
+AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
+
+FACEBOOK_APP_ID = 'FACEBOOK_APP_ID'
+FACEBOOK_APP_SECRET = 'FACEBOOK_APP_SECRET'
+
+from .settings_private import *

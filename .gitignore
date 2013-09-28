@@ -2,3 +2,4 @@
 *.pyc
 .codeintel/*
 *.log
+djangodash2013/settings_private.*
