@@ -5,5 +5,5 @@ User = get_user_model()
 
 
 class Mosaic(models.Model):
-    image_path = models.FilePathField()
+    image = models.ImageField(upload_to=u'mosaics')
     user = models.ForeignKey(User)

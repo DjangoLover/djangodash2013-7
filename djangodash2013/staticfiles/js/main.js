@@ -20,7 +20,7 @@ _main = {
 		mosaic: function(){
 			function request(){
 
-				$.getJSON( "/test.json?"+Math.round(new Date().getTime() / 1000), function( data ){	
+				$.getJSON( "/is_mosaic_ready/?"+Math.round(new Date().getTime() / 1000), function( data ){
 					if(data.url){
 						$('.buttonMosaic, .whiteBlock iframe').remove();
 						$('#mosaic').html('<a href="'+data.url+'" class="colorbox"><img src="'+data.url+'" /></a>');

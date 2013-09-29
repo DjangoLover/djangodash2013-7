@@ -69,5 +69,5 @@ def get_friends_pics(request):
     pics_raw = converter.open_facebook.fql(
         u'SELECT pic FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())')
     pics = [x['pic'] for x in pics_raw]
-    make_mosaic(**dict(user=request.user, pics_urls=pics))
+    make_mosaic.apply_async(kwargs=dict(user=request.user, pics_urls=pics))
     return

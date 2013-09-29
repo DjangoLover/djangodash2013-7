@@ -2,7 +2,6 @@ import os
 import uuid
 from django.conf import settings
 
-
 from celery.task import task
 
 import osaic
@@ -13,18 +12,21 @@ from core.utils import DownloadManager
 
 @task(ignore_result=True)
 def make_mosaic(pics_urls, user):
+    Mosaic.objects.filter(user=user).delete()
     output_directory = os.path.join(settings.USERPICS_DIR, str(user.id))
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
     downloader = DownloadManager(download_list=pics_urls, output_directory=output_directory)
-    #downloader.begin_downloads()
+    downloader.begin_downloads()
     pics_files = [os.path.join(output_directory, x) for x in os.listdir(output_directory)]
     output_filename = os.path.join(settings.MOSAICS_DIR, uuid.uuid1().hex + '.png')
     osaic.mosaicify(
         target=user.image.path,
         sources=pics_files,
-        tiles=60,
-        zoom=10,
+        tiles=40,
+        zoom=8,
         output=output_filename,
     )
-    Mosaic.objects.create(user=user, image_path=output_filename)
+    mosaic = Mosaic(user=user)
+    mosaic.image.name = output_filename[len(settings.MEDIA_ROOT) + 1:]
+    mosaic.save()
