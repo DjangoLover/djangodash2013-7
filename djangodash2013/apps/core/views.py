@@ -6,7 +6,7 @@ from core.utils import get_friends_pics
 from core.models import Mosaic
 
 
-def main(request, template=u'main.html'):
+def main(request, template=u'500.html'):
     if request.user.is_authenticated():
         get_friends_pics(request)
     else:
