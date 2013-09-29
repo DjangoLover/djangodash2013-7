@@ -1,15 +1,15 @@
 @font-face {
   font-family: 'FiraSans Regular';
-  src:  url('/font/FiraSans-Regular.eot');
-  src:  url('/font/FiraSans-Regular.ttf') format('truetype'),
-        url("/font/FiraSans-Regular.woff") format("woff");
+  src:  url('../font/FiraSans-Regular.eot');
+  src:  url('../font/FiraSans-Regular.ttf') format('truetype'),
+        url("../font/FiraSans-Regular.woff") format("woff");
   
 }
 @font-face {
   font-family: 'FiraSans Light';
-  src:  url('/font/FiraSans-Light.eot');
-  src:  url('/font/FiraSans-Light.ttf') format('truetype'),
-        url("/font/FiraSans-Light.woff") format("woff");
+  src:  url('../font/FiraSans-Light.eot');
+  src:  url('../font/FiraSans-Light.ttf') format('truetype'),
+        url('../font/FiraSans-Light.woff') format("woff");
 }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -56,7 +56,7 @@ table {
 
 body{
 	font-family: 'FiraSans Regular', Arial,Helvetica,sans-serif;
-  background: url('/images/background.png');
+  background: url('../images/background.png');
   color:#FFF;
 }
 
@@ -92,7 +92,7 @@ a:hover{color:#FFF;}
 }
 
 #header{
-  background: url('/images/blackPix.png');
+  background: url('../images/blackPix.png');
   width: 100%;
   padding:60px 0;
   margin:0 auto;
@@ -120,7 +120,7 @@ a:hover{color:#FFF;}
   overflow: hidden;
 }
 #content #wood{
-  background: #FFF url('/images/backgroundWood.png');
+  background: #FFF url('../images/backgroundWood.png');
   position: relative;
   padding:20px;
   box-shadow: inset 0 -7px 1px #b2885e, 0 3px 8px -3px #000;
@@ -172,7 +172,7 @@ a:hover{color:#FFF;}
 }
 
 #content #wood>div>a.facebook{
-  background-image: url('/images/iconFacebook.png');
+  background-image: url('../images/iconFacebook.png');
   background-repeat: no-repeat;
   background-position: 20px 15px;
   padding-left:50px;
@@ -191,7 +191,7 @@ a:hover{color:#FFF;}
 }
 #about{
   margin-top:20px;
-  background: url('/images/blackPix.png');
+  background: url('../images/blackPix.png');
   padding: 20px;
 }
 
@@ -212,19 +212,19 @@ a:hover{color:#FFF;}
 #footer a:hover{opacity: 1}
 #footer a+a{margin-left:70px;}
 #footer a.facebook{
-  background:url('/images/iconFacebookBig.png') no-repeat;
+  background:url('../images/iconFacebookBig.png') no-repeat;
   width:167px;
   height:33px;
   margin-top:90px;
 }
 #footer a.django{
-  background:url('/images/iconDjango.png') no-repeat;
+  background:url('../images/iconDjango.png') no-repeat;
   width:123px;
   height:44px;
   margin-top:90px;
 }
 #footer a.djangdash{
-  background:url('/images/iconDash.png') no-repeat;
+  background:url('../images/iconDash.png') no-repeat;
   width:82px;
   height:88px;
   margin-left: 78px;
