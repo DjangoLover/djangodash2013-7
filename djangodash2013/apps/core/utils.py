@@ -16,15 +16,18 @@ def get_facebook_friends(request):
 
 class _Downloader(threading.Thread):
     def __init__(self, queue, output_directory):
-        threading.Thread.__init__(self, name=os.urandom(16).encode('hex'))
+        threading.Thread.__init__(self)
         self.queue = queue
         self.output_directory = output_directory
 
     def run(self):
         while True:
-            url = self.queue.get()
-            self.download_file(url)
-            self.queue.task_done()
+            try:
+                url = self.queue.get(block=False)
+            except Queue.Empty, e:
+                return
+            else:
+                self.download_file(url)
 
     def download_file(self, url):
         r = requests.get(url)
@@ -32,8 +35,7 @@ class _Downloader(threading.Thread):
             fname = self.output_directory + "/" + os.path.basename(url)
             with open(fname, "wb") as f:
                 f.write(r.content)
-        else:
-            pass
+        return
 
 
 class DownloadManager():
@@ -46,14 +48,14 @@ class DownloadManager():
         queue = Queue.Queue()
         threads = list()
 
+        for link in self.download_list:
+            queue.put(link)
+
         for i in range(self.thread_count):
             thread = _Downloader(queue, self.output_directory)
-            thread.setDaemon(True)
             thread.start()
             threads.append(thread)
 
-        for link in self.download_list:
-            queue.put(link)
         for thread in threads:
             thread.join()
         return
@@ -67,5 +69,5 @@ def get_friends_pics(request):
     pics_raw = converter.open_facebook.fql(
         u'SELECT pic FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me())')
     pics = [x['pic'] for x in pics_raw]
-    make_mosaic.apply_async(kwargs=dict(user=request.user, pics_urls=pics))
+    make_mosaic(**dict(user=request.user, pics_urls=pics))
     return
