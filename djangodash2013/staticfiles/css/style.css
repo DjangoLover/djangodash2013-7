@@ -2,14 +2,14 @@
   font-family: 'FiraSans Regular';
   src:  url('../font/FiraSans-Regular.eot');
   src:  url('../font/FiraSans-Regular.ttf') format('truetype'),
-        url("../font/FiraSans-Regular.woff") format("woff");
+  url("../font/FiraSans-Regular.woff") format("woff");
   
 }
 @font-face {
   font-family: 'FiraSans Light';
   src:  url('../font/FiraSans-Light.eot');
   src:  url('../font/FiraSans-Light.ttf') format('truetype'),
-        url('../font/FiraSans-Light.woff') format("woff");
+  url("../font/FiraSans-Light.woff") format("woff");
 }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -64,6 +64,13 @@ h1, h2, h3, h4, h5, h6{
   margin-bottom:10px;
   font-family: 'FiraSans Light' 
 }
+h2.caption{
+  text-align: center;
+  font-size:60px;
+  padding:20px 0 40px 0;
+  margin-bottom:40px;
+  border-bottom:1px solid #CCC;
+}
 .hide{
   display: none
 }
@@ -83,12 +90,49 @@ a:hover{color:#FFF;}
   padding:20px 20px;
   border-radius: 10px;
   box-shadow: inset 0 -5px 1px #003b86;
+  margin:0 auto;
+  text-align:center;
 }
 .button:hover{
   background: #013b86;
 }
-.button:active{
-  margin-top:1px;
+@keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: -198px 0; }
+}
+@-webkit-keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: -198px 0; }
+}
+@-ms-keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: -198px 0; }
+}
+@-moz-keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: -198px 0; }
+}
+.loading{
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  background: #013b86;
+}
+.loading:active{
+  margin-top:0;
+}
+.loading:before{
+  content:'';
+  width:100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url('../images/loading.png');
+  animation: animatedBackground 3s linear infinite;
+  -ms-animation: animatedBackground 3s linear infinite;
+  -moz-animation: animatedBackground 3s linear infinite;
+  -webkit-animation: animatedBackground 3s linear infinite;
 }
 
 #header{
@@ -110,7 +154,6 @@ a:hover{color:#FFF;}
 }
 #header a span{font-size:60px;}
 #header a p{font-size:41px;}
-
 #content{
   margin:0 auto;
   margin-top:250px;
@@ -119,6 +162,10 @@ a:hover{color:#FFF;}
   z-index:2;
   overflow: hidden;
 }
+#content ul{margin-top:20px;}
+#content ul li{
+  padding:10px 0;
+}
 #content #wood{
   background: #FFF url('../images/backgroundWood.png');
   position: relative;
@@ -126,21 +173,41 @@ a:hover{color:#FFF;}
   box-shadow: inset 0 -7px 1px #b2885e, 0 3px 8px -3px #000;
   border-radius: 20px;
 }
-
-#content #wood>div{
+#content.insideWidth{
+  width:960px !important;
+}
+#content #wood>div>div.content{
   padding:20px;
 }
 
 #content #wood>div p{
   margin-top:10px;
 }
+#content iframe{
+  margin-bottom:40px;
+}
+#content img{
+  width:100%;
+}
 #content #wood>div.whiteBlock{
   background: #FFF;
   border-radius: 20px;
-  padding:20px;
   box-shadow: 0 3px 1px #b2885e;
   margin-bottom:20px;
+  float:left;
+  width:49%;
 }
+#content #wood>div.whiteBlockIndex{
+  background: #FFF;
+  border-radius: 20px;
+  box-shadow: 0 3px 1px #b2885e;
+  margin-bottom:20px;
+  padding:20px;
+}
+div.whiteBlock:nth-child(odd){
+  margin-left:2%;
+}
+
 #content #wood>div .name{
   font-size:30px;
   margin-top:40px;
@@ -164,9 +231,12 @@ a:hover{color:#FFF;}
   width:130px;
   height:130px;
   overflow: hidden;
-  margin-right: 20px;
   margin-bottom: 20px
 }
+#content #wood>div .avatarMin + .avatarMin{
+  margin-left: 10px;
+}
+
 #content #wood>div .avatar img{
   width:100%;
 }
@@ -175,12 +245,22 @@ a:hover{color:#FFF;}
   background-image: url('../images/iconFacebook.png');
   background-repeat: no-repeat;
   background-position: 20px 15px;
-  padding-left:50px;
+
   margin: 20px 0;
 }
 
-
-
+#wood .information{
+  clear:both;
+  margin-bottom:40px;
+  padding-bottom:40px;
+  border-bottom:1px solid #CCC;
+}
+#content #wood .information h2{
+  padding-top:10px;
+}
+#content #wood .information .avatarMin{
+  margin-right:40px;
+}
 #copyright{
   margin-top:20px;
   padding:0 20px;
@@ -229,3 +309,4 @@ a:hover{color:#FFF;}
   height:88px;
   margin-left: 78px;
 }
+

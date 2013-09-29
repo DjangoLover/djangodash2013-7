@@ -3,45 +3,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Facedash - FACEBOOK INSIGHTS</title>
+    <title>Facepalm - Facebook mosaic </title>
     <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/colorbox.css" %}">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-    <script src="{% static "js/highcharts.js" %}"></script>
-    <script src="{% static "js/gray.js" %}"></script>
     <script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/jquery.colorbox-min.js" %}"></script>
 </head>
 <body>
 
 
 <div id="layout">
-    <div id="header">
-        <a href="/">
-            <span>FACEDASH.PW</span>
+		<div id="header">
+			<a href="/">
+				<span>FACEDASH.PW</span>
+				<p>FACEBOOK INSIGHTS</p>
+			</a>
+		</div>
+		{% block content %}
 
-            <p>FACEBOOK INSIGHTS</p>
-        </a>
-    </div>
-    {% block content %}
+         {% endblock %}
 
-    {% endblock %}
+	</div>
+
+
+{% block footer %}
     <div id="footer">
         <div id="about" class="hide">
 
-            <h1>
-                A coub is a looped video
-                up to 10 seconds long</h1>
-
-            <p>
-                Turn your favorite videos into coubs online.
-                Share them with friends and enjoy
-                what others create.
-            </p>
         </div>
         <a href="#" class="django"></a>
         <a href="#" class="djangdash"></a>
         <a href="#" class="facebook"></a>
     </div>
-</div>
+{% endblock %}
 
 </body>
 {% block extra_js %}

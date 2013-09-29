@@ -33,6 +33,12 @@ def parse_famous(year, month, day):
 
     return list
 
+def get_famous(request):
+    from api.tasks import get_famous_task
+
+    get_famous_task.apply_async(kwargs=dict(user=request.user))
+    return
+
 def parse_events_by_date(year, month, day):
     '''
     parse events from historyorb.com
