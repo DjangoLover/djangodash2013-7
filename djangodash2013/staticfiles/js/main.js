@@ -38,7 +38,7 @@ _main = {
 			});
 
             function request2(){
-				$(this).addClass('loading');
+				$('#more').addClass('loading');
 				$.getJSON( "/parse_api/famous?"+Math.round(new Date().getTime() / 1000), function( data ){
 					var output = '';
 
@@ -54,8 +54,6 @@ _main = {
 
 					});
 					$('#celebrity').html(output);
-
-
 
 				}).done(function() {
 					$('#more').removeClass('loading');
