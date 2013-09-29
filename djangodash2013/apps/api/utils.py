@@ -7,6 +7,7 @@ def get_months():
 
     return months
 
+
 def parse_famous(year, month, day):
     '''
     parse famous from famousbirthdays.com
@@ -33,11 +34,13 @@ def parse_famous(year, month, day):
 
     return list
 
+
 def get_famous_utils(request):
     from api.tasks import get_famous_task
 
     get_famous_task.apply_async(kwargs=dict(user=request.user))
     return
+
 
 def parse_events_by_date(year, month, day):
     '''

@@ -9,16 +9,19 @@ from .utils import parse_famous, parse_events_by_date
 from .models import Famous
 
 from .utils import get_famous_utils
+
+
 def get_famous(request):
     if request.user.is_authenticated:
         get_famous_utils(request)
-
-        people = Famous.objects.filter(user=request.user)[0]
-        people = people.json
-        print people
-        if people:
+        if Famous.objects.filter(user=request.user).count() > 0:
+            people = Famous.objects.filter(user=request.user)[0]
+            people = people.json
             people = json.loads(people)
             people = [get_random(people), get_random(people), get_random(people), get_random(people)]
+        else:
+            get_famous_utils(request)
+            people = dict()
     else:
         people = None
 
