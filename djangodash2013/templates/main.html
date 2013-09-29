@@ -3,95 +3,113 @@
 {% block content %}
     <div id="content" {% if request.user.is_authenticated %} class="insideWidth" {% endif %}>
         {% if not request.user.is_authenticated %}
-			<div id="wood">
-				<div class="whiteBlockIndex">
-					<a href="{% url 'facebook_connect' %}" class="button facebook">SIGN UP WITH FACEBOOK</a>
-				</div>
-			</div>
+            <div id="wood">
+                <div class="whiteBlockIndex">
+                    <a href="{% url 'facebook_connect' %}" class="button facebook">SIGN UP WITH FACEBOOK</a>
+                </div>
+            </div>
 
         {% else %}
 
-			<div id="wood">
-				<div>
-					<div class="content">
-						<a href="#" class="avatar"><img src="{{ request.user.image.url }}" /></a>
-						<a href="#" class="name">{{ request.user.facebook_name }}</a>
-						<p>Birthday: {{ request.user.date_of_birth }}</p>
-						<div class="clear"></div>
-					</div>
-				</div>
-				<div class="whiteBlock">
-					<div class="content">
-						<h2 class="caption">{{ request.user.date_of_birth }}</h2>
+            <div id="wood">
+                <div>
+                    <div class="content">
+                        <a href="#" class="avatar"><img src="{{ request.user.image.url }}"/></a>
+                        <a href="#" class="name">{{ request.user.facebook_name }}</a>
 
-						<div class="information">
-							<span class="avatarMin"><img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></span>
-							<div>
-								<h2>Clint Eastwood</h2>
-								<p class="age">Age: 82</p>
-								<p class="description">Actor, director, pianist, politician, TV personality, and jazz enthusiast who became an icon of tough masculine qualities.</p>
-								<div class="clear"></div>
-							</div>
-						</div>
-						<div class="clear"></div>
-						<div id="celebrity">
-							<a href="#" class="avatarMin">
-								<img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg">
-								<div class='hide'>
-									<div class="name">sdafas df asfd</div>
-									<div class="age">123</div>
-									<div class="description">sd вап sdfпsвап ыывап ывап выап пывап </div>
-								</div>
-							</a>
-							<a href="#" class="avatarMin"><img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"><div class='hide'>
-									<div class="name">sdafas df asfd</div>
-									<div class="age">123</div>
-									<div class="description">sd вап sdfпsвап ыывап ывап выап пывап </div>
-								</div></a>
-							<a href="#" class="avatarMin"><img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"><div class='hide'>
-									<div class="name">sdafas df asfd</div>
-									<div class="age">123</div>
-									<div class="description">sd вап sdfпsвап ыывап ывап выап пывап </div>
-								</div></a>
-						</div>
-						<div class="clear"></div>
-						<a href="#" class="button" id="more" style="width:100px">MORE >>></a>
-					</div>
-				</div>
+                        <p>Birthday: {{ request.user.date_of_birth }}</p>
 
-				<div class="whiteBlock">
-					<div class="content">
-						<h2 class="caption">Mosaic photos</h2>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="whiteBlock">
+                    <div class="content">
+                        <h2 class="caption">{{ request.user.date_of_birth }}</h2>
 
-						<iframe src="http://coub.com/embed/tskvw0?muted=false&amp;autostart=true&originalSize=false&hideTopBar=false&noSiteButtons=false&startWithHD=false" allowfullscreen="true" frameborder="0" width="100%" height="180"></iframe>
+                        <div class="information">
+                            <span class="avatarMin"><img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></span>
 
-						<span class="button buttonMosaic loading" style="width:150px">Loading mosaic</span>
-						<div id="mosaic"></div>
+                            <div>
+                                <h2>Clint Eastwood</h2>
 
+                                <p class="age">Age: 82</p>
 
-					</div>
-				</div>
+                                <p class="description">Actor, director, pianist, politician, TV personality, and jazz
+                                    enthusiast who became an icon of tough masculine qualities.</p>
 
-				<div class="clear"></div>
-			</div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div id="celebrity">
+                            <a href="#" class="avatarMin">
+                                <img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg">
+
+                                <div class='hide'>
+                                    <div class="name">sdafas df asfd</div>
+                                    <div class="age">123</div>
+                                    <div class="description">sd вап sdfпsвап ыывап ывап выап пывап</div>
+                                </div>
+                            </a>
+                            <a href="#" class="avatarMin"><img
+                                    src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg">
+
+                                <div class='hide'>
+                                    <div class="name">sdafas df asfd</div>
+                                    <div class="age">123</div>
+                                    <div class="description">sd вап sdfпsвап ыывап ывап выап пывап</div>
+                                </div>
+                            </a>
+                            <a href="#" class="avatarMin"><img
+                                    src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg">
+
+                                <div class='hide'>
+                                    <div class="name">sdafas df asfd</div>
+                                    <div class="age">123</div>
+                                    <div class="description">sd вап sdfпsвап ыывап ывап выап пывап</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="clear"></div>
+                        <a href="javascript:void(null)" class="button" id="more" style="width:100px">MORE >>></a>
+                    </div>
+                </div>
+
+                <div class="whiteBlock">
+                    <div class="content">
+                        <h2 class="caption">Mosaic photo</h2>
+
+                        <iframe src="http://coub.com/embed/tskvw0?muted=false&amp;autostart=true&originalSize=false&hideTopBar=false&noSiteButtons=false&startWithHD=false"
+                                allowfullscreen="true" frameborder="0" width="100%" height="180"></iframe>
+
+                        <span class="button buttonMosaic loading" style="width:150px">Loading mosaic</span>
+
+                        <div id="mosaic"></div>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+            </div>
 
         {% endif %}
 
         <div id="copyright">
             <a href="#" class="what ajax" id="toogleBlock" rel="about">What is it?</a>
+
             <p>&copy; 2013 for <a href="#">DjangoDash.com</a></p>
         </div>
     </div>
 {% endblock %}
 
 {% block footer %}
-<div id="footer">
-    <div id="about" class="hide">
-        <iframe src="http://coub.com/embed/kp0jqk?muted=false&amp;autostart=true&originalSize=false&hideTopBar=false&noSiteButtons=false&startWithHD=false" allowfullscreen="true" frameborder="0" width="100%" height="360"></iframe>
+    <div id="footer">
+        <div id="about" class="hide">
+            <iframe src="http://coub.com/embed/kp0jqk?muted=false&amp;autostart=true&originalSize=false&hideTopBar=false&noSiteButtons=false&startWithHD=false"
+                    allowfullscreen="true" frameborder="0" width="100%" height="360"></iframe>
 
+        </div>
+        <a href="#" class="django"></a>
+        <a href="#" class="djangdash"></a>
+        <a href="#" class="facebook"></a>
     </div>
-    <a href="#" class="django"></a>
-    <a href="#" class="djangdash"></a>
-    <a href="#" class="facebook"></a>
-</div>
 {% endblock %}
