@@ -10,7 +10,7 @@ from api.utils import parse_famous
 
 
 @task(ignore_result=True)
-def get_famous(user):
+def get_famous_task(user):
     year = 1963
     month = 1
     day = 23
