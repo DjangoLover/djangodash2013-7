@@ -1,44 +1,54 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% if not request.user.is_authenticated %}
-        <div id="wood">
-            <div class="whiteBlock">
-                <a href="{% url 'facebook_connect' %}" class="button facebook">SIGN UP WITH FACEBOOK</a>
+    <div id="content" {% if request.user.is_authenticated %} class="insightWidth" {% endif %}>
+        {% if not request.user.is_authenticated %}
+            <div id="wood">
+                <div class="whiteBlock">
+                    <a href="{% url 'facebook_connect' %}" class="button facebook">SIGN UP WITH FACEBOOK</a>
+                </div>
             </div>
+        {% else %}
+            <div id="wood" style="">
+                <div>
+                    <a href="#" class="avatar">
+                        {#                    <img#}
+                        {#                        src="{{ request.user.image.url }}">#}
+                    </a>
+                    <a href="#" class="name">{{ request.user.facebook_name }}</a>
+
+                    <p>Birthday: {{ request.user.date_of_birth }}</p>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="whiteBlock">
+                    <a href="#" class="avatarMin"><img
+                            src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
+                    <a href="#" class="avatarMin"><img
+                            src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
+                    <a href="#" class="avatarMin"><img
+                            src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
+                    <a href="#" class="avatarMin"><img
+                            src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
+                    <a href="#" class="avatarMin"><img
+                            src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
+                    <a href="#" class="avatarMin"><img
+                            src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
+                    <a href="#" class="avatarMin"><img
+                            src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
+                    <a href="#" class="avatarMin"><img
+                            src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div id="container"></div>
+        {% endif %}
+        <div id="copyright">
+            <a href="#" class="what ajax">What is it?</a>
+
+            <p>&copy; 2013 for <a href="#">DjangoDash.com</a></p>
         </div>
-    {% else %}
-        <div id="wood" style="">
-            <div>
-                <a href="#" class="avatar">
-                    {#                    <img#}
-                    {#                        src="{{ request.user.image.url }}">#}
-                </a>
-                <a href="#" class="name">{{ request.user.facebook_name }}</a>
-
-                <p>Birthday: {{ request.user.date_of_birth }}</p>
-
-                <div class="clear"></div>
-            </div>
-            <div class="whiteBlock">
-                <a href="#" class="avatarMin"><img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
-                <a href="#" class="avatarMin"><img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
-                <a href="#" class="avatarMin"><img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
-                <a href="#" class="avatarMin"><img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
-                <a href="#" class="avatarMin"><img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
-                <a href="#" class="avatarMin"><img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
-                <a href="#" class="avatarMin"><img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
-                <a href="#" class="avatarMin"><img src="http://www.famousbirthdays.com/faces/eastwood-c-mid.jpg"></a>
-
-                <div class="clear"></div>
-            </div>
-        </div>
-        <div id="container"></div>
-    {% endif %}
-    <div id="copyright">
-        <a href="#" class="what ajax">What is it?</a>
-
-        <p>&copy; 2013 for <a href="#">DjangoDash.com</a></p>
     </div>
 {% endblock %}
 
