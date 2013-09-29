@@ -29,3 +29,8 @@ def is_mosaic_ready(request):
     else:
         response = dict()
     return HttpResponse(json.dumps(response))
+
+
+def oops(request):
+    de = 3 / 0
+    return HttpResponse()
