@@ -1,5 +1,5 @@
 from grab import Grab
-from djangodash2013.settings import DEBUG_DIR
+
 
 def get_months():
     months = {1: "january", 2: "february", 3: "march", 4: "april", 5: "may", 6: "june", 7: "july", 8: "august",
