@@ -17,6 +17,7 @@ _main = {
 					if(data.url){
 						$('.buttonMosaic, .whiteBlock iframe').remove();
 						$('#mosaic').html('<a href="'+data.url+'" class="colorbox"><img src="'+data.url+'" /></a>');
+                        $('.colorbox').colorbox();
 						clearInterval(interval);
 					}
 				});
