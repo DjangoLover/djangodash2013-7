@@ -90,6 +90,17 @@
 
                 <div class="clear"></div>
             </div>
+            <script>
+                $(function () {
+                    var methods = _main.methods,
+                            functions = _main.functions;
+                    $.each(functions, function (key, val) {
+                        this()
+                    });
+                    $('.colorbox').colorbox();
+                });
+
+            </script>
 
         {% endif %}
 

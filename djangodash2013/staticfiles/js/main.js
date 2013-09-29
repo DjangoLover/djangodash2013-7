@@ -1,10 +1,3 @@
-$(function ()                                 
-{
-	var methods     =   _main.methods,
-	functions   =   _main.functions;
-	$.each(functions,function(key,val){ this() });
-	$('.colorbox').colorbox();
-});
 
 _main = {
 	option: {},
