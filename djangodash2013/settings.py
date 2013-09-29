@@ -139,6 +139,8 @@ INSTALLED_APPS = (
 
     'raven.contrib.django.raven_compat',
     'django_facebook',
+    'djcelery',
+    'south',
 
     'core',
     'api',
@@ -177,7 +179,28 @@ LOGGING = {
 
 AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
 
+
+#fb settings
 FACEBOOK_APP_ID = 'FACEBOOK_APP_ID'
 FACEBOOK_APP_SECRET = 'FACEBOOK_APP_SECRET'
 
+#app settings
+USERPICS_DIR = os.path.join(MEDIA_ROOT, 'userpics')
+MOSAICS_DIR = os.path.join(MEDIA_ROOT, 'mosaics')
+
+import djcelery
+
+djcelery.setup_loader()
+
+#celery settings
+CELERY_TASK_RESULT_EXPIRES = 18000
+CELERND_TASK_ERROR_EMAILS = True
+CELERY_RESULT_BACKEND = "redis"
+CELERY_REDIS_HOST = "localhost"
+CELERY_REDIS_PORT = 6379
+CELERY_REDIS_DB = 0
+
+BROKER_URL = "redis://localhost:6379/0"
+
+#private settings like facebook secret key, sentry key etc.
 from .settings_private import *

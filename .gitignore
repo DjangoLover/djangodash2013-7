@@ -3,3 +3,4 @@
 .codeintel/*
 *.log
 djangodash2013/settings_private.*
+djangodash2013/media/*
