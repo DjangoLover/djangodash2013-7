@@ -12,7 +12,6 @@ from core.utils import DownloadManager
 
 @task(ignore_result=True)
 def make_mosaic(pics_urls, user):
-    Mosaic.objects.filter(user=user).delete()
     output_directory = os.path.join(settings.USERPICS_DIR, str(user.id))
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)

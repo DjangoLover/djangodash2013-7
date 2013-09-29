@@ -5,6 +5,7 @@ import requests
 
 from django_facebook.api import FacebookUserConverter, get_facebook_graph
 
+from core.models import Mosaic
 
 def get_facebook_friends(request):
     open_graph = get_facebook_graph(request)
@@ -63,7 +64,7 @@ class DownloadManager():
 
 def get_friends_pics(request):
     from core.tasks import make_mosaic
-
+    Mosaic.objects.filter(user=request.user).delete()
     open_graph = get_facebook_graph(request)
     converter = FacebookUserConverter(open_graph)
     pics_raw = converter.open_facebook.fql(
