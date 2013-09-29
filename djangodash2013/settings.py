@@ -141,6 +141,7 @@ INSTALLED_APPS = (
     'django_facebook',
     'djcelery',
     'south',
+    'gunicorn',
 
     'core',
     'api',
