@@ -17,6 +17,7 @@ _main = {
 					if(data.url){
 						$('.buttonMosaic, .whiteBlock iframe').remove();
 						$('#mosaic').html('<a href="'+data.url+'" class="colorbox"><img src="'+data.url+'" /></a>');
+                        $('.colorbox').colorbox();
 						clearInterval(interval);
 					}
 				});
@@ -38,7 +39,7 @@ _main = {
 			});
 
             function request2(){
-				$(this).addClass('loading');
+				$('#more').addClass('loading');
 				$.getJSON( "/parse_api/famous?"+Math.round(new Date().getTime() / 1000), function( data ){
 					var output = '';
 
@@ -54,8 +55,6 @@ _main = {
 
 					});
 					$('#celebrity').html(output);
-
-
 
 				}).done(function() {
 					$('#more').removeClass('loading');
