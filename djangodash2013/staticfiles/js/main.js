@@ -43,21 +43,35 @@ _main = {
 				$('.information .avatarMin img').attr('src',img);
 				return false;
 			});
-			$('#more').click(function(){
+
+            function request2(){
 				$(this).addClass('loading');
-				$.getJSON( "/parse_api/famous", function( data ){
+				$.getJSON( "/parse_api/famous?"+Math.round(new Date().getTime() / 1000), function( data ){
 					var output = '';
+
 					$.each(data,function(key,p){
-						output += '<a href="#" class="avatarMin"><img src="'+p.src+'"><div class="hide"><div class="name">'+p.name+'</div><div class="age">Age: '+p.age+'</div><div class="description">'+p.description+'</div></div></a>';
+                        if(key == 0){
+                            $('.information h2').text(p.name);
+                            $('.information p.age').text(p.age);
+                            $('.information p.description').text(p.description);
+                            $('.information .avatarMin img').attr('src', p.src);
+                        }else{
+                            output += '<a href="#" class="avatarMin"><img src="'+p.src+'"><div class="hide"><div class="name">'+p.name+'</div><div class="age">Age: '+p.age+'</div><div class="description">'+p.description+'</div></div></a>';
+                        }
 
 					});
 					$('#celebrity').html(output);
 
+
+
 				}).done(function() {
 					$('#more').removeClass('loading');
+                    clearInterval(interval2);
 				})
 				return false;
-			});
+			}
+			$('#more').click(function(){request2()});
+            interval2 = setInterval(function(){request2()}, 1000);
 		}
 
 	}

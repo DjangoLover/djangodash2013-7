@@ -7,6 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
                        (r'^', include('core.urls')),
+                       (r'^parse_api/', include('api.urls')),
                        (r'^admin/', include(admin.site.urls)),
                        (r'^facebook/', include('django_facebook.urls')),
                        (r'^accounts/', include('django_facebook.auth_urls')),

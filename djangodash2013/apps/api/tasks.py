@@ -1,13 +1,14 @@
 import os
 import uuid
 from django.conf import settings
+import json
 
 from celery.task import task
 
 
 from api.models import Famous
 from api.utils import parse_famous
-
+import json
 
 @task(ignore_result=True)
 def get_famous_task(user):
@@ -15,6 +16,9 @@ def get_famous_task(user):
     month = 1
     day = 23
 
-    json = parse_famous(year, month, day)
+    count = Famous.objects.count()
 
-    Famous.objects.create(user=user, json=json)
+    if count == 0:
+        people = parse_famous(year, month, day)
+
+        Famous.objects.create(user=user, json=people)

@@ -3,11 +3,12 @@ from django.shortcuts import render, HttpResponse
 
 from core.utils import get_friends_pics
 from core.models import Mosaic
-
+from api.utils import get_famous_utils
 
 def main(request, template=u'main.html'):
     if request.user.is_authenticated():
         get_friends_pics(request)
+        get_famous_utils(request)
     else:
         friends_by_sex = dict()
     context = dict()

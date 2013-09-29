@@ -12,3 +12,4 @@ redis
 celery-with-redis
 hg+https://Franz_ru@bitbucket.org/Franz_ru/osaic#egg=osaic
 gunicorn
+requests
