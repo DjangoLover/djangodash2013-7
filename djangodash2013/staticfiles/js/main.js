@@ -45,7 +45,7 @@ _main = {
 			});
 			$('#more').click(function(){
 				$(this).addClass('loading');
-				$.getJSON( "/celebrity.json", function( data ){
+				$.getJSON( "/parse_api/famous", function( data ){
 					var output = '';
 					$.each(data,function(key,p){
 						output += '<a href="#" class="avatarMin"><img src="'+p.src+'"><div class="hide"><div class="name">'+p.name+'</div><div class="age">Age: '+p.age+'</div><div class="description">'+p.description+'</div></div></a>';
