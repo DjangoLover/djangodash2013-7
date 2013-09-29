@@ -1,0 +1,51 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facedash - FACEBOOK INSIGHTS</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="{% static "js/highcharts.js" %}"></script>
+    <script src="{% static "js/gray.js" %}"></script>
+    <script src="{% static "js/main.js" %}"></script>
+</head>
+<body>
+
+
+<div id="layout">
+    <div id="header">
+        <a href="/">
+            <span>FACEDASH.PW</span>
+
+            <p>FACEBOOK INSIGHTS</p>
+        </a>
+    </div>
+    <div id="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    <div id="footer">
+        <div id="about" class="hide">
+
+            <h1>
+                A coub is a looped video
+                up to 10 seconds long</h1>
+
+            <p>
+                Turn your favorite videos into coubs online.
+                Share them with friends and enjoy
+                what others create.
+            </p>
+        </div>
+        <a href="#" class="django"></a>
+        <a href="#" class="djangdash"></a>
+        <a href="#" class="facebook"></a>
+    </div>
+</div>
+
+</body>
+{% block extra_js %}
+{% endblock %}
+</html>
